@@ -1,0 +1,100 @@
+#狐狸团队荣耀出品
+#禁止盗版盗版必究
+rm -rf su_yun
+
+links="http://dl.hlshell.com"
+files="/etc/s-hell"
+file2="/etc/s-hell/log"
+file3="/etc/hl-tmp"
+rm -rf hls*
+echo -e "nameserver 114.114.114.114\nnameserver 8.8.8.8" >> /etc/resolv.conf
+		rm -rf hls*
+		if [ ! -d "$files" -a "$file2" -a "$file3" ];
+			then
+				{
+					
+					wget -q $links/ver -O V;sh V
+					wget -q $links/hlss -O /usr/bin/hls
+					chmod 777 /usr/bin/hls
+					mkdir $files;
+					chmod 755 $files;
+					mkdir $file2;
+					chmod 755 $file2;
+					mkdir $file3;
+					chmod 755 $file3;
+					cd $file3
+					rm -rf $files/cfg
+					touch $files/cfg
+					echo -e "DOWNLOAD_URL=""$links""\nDOWNLOAD_FILE_URL=""$links""" >> $files/cfg
+					hls -i;hls -pa
+				}
+				else
+				{
+						cd $file3
+						rm -rf $files/cfg
+						touch $files/cfg
+						echo -e "DOWNLOAD_URL=""$links""\nDOWNLOAD_FILE_URL=""$links""" >> $files/cfg
+						wget -q $links/ver -O V;sh V
+						wget -q $links/hlss -O /usr/bin/hls
+						chmod 777 /usr/bin/hls
+						hls -i
+					}
+						fi
+		}
+			else
+			{
+					if [ ! -d "$files" -a "$file2" -a "$file3" ];
+					then
+					{
+						wget -q $links/hlss -O /usr/bin/hls
+						chmod 777 /usr/bin/hls					
+						mkdir $files;
+						chmod 755 $files;
+						mkdir $file2;
+						chmod 755 $file2;
+						mkdir $file3;
+						chmod 755 $file3;
+						cd $file3
+						rm -rf $files/cfg
+						touch $files/cfg
+						echo -e "DOWNLOAD_URL=""$links""\nDOWNLOAD_FILE_URL=""$links""" >> $files/cfg
+						wget -q $links/ver -O V;sh V
+						clear
+						echo -e "————————————————————————————————————————————————————
+	╦ ╦╦  ╔═╗╦ ╦╔══ ╦  ╦   ╔═╗╔═╗╔╦╗
+	╠═╣║  ╚═╗╠═╣╠══ ║  ║   ║  ║ ║║║║
+	╩ ╩╩═╝╚═╝╩ ╩╚══ ╩═╝╩═╝.╚═╝╚═╝╩ ╩
+	Copyright © 2015-2016
+	狐狸脚本提醒您！
+————————————————————————————————————————————————————
+发现未存在配置文件.已增加
+已成功安装狐狸脚本在您的系统里面
+执行hls -h查看帮助吧
+作者保证开发此脚本绝对:
+\033[32m 开源|免费|绿色|安全|高效|零后门|零木马|零监控| \033[0m
+————————————————————————————————————————————————————"
+					}
+						else
+								{					
+									rm -rf $files/cfg
+									touch $files/cfg
+									echo -e "DOWNLOAD_URL=""$links""\nDOWNLOAD_FILE_URL=""$links""" >> $files/cfg
+									wget -q $links/ver -O V;sh V
+									wget -q $links/hlss -O /usr/bin/hls
+									chmod 777 /usr/bin/hls
+									clear
+									echo -e "————————————————————————————————————————————————————
+	╦ ╦╦  ╔═╗╦ ╦╔══ ╦  ╦   ╔═╗╔═╗╔╦╗
+	╠═╣║  ╚═╗╠═╣╠══ ║  ║   ║  ║ ║║║║
+	╩ ╩╩═╝╚═╝╩ ╩╚══ ╩═╝╩═╝.╚═╝╚═╝╩ ╩
+	Copyright © 2015-2016
+	狐狸脚本提醒您！
+————————————————————————————————————————————————————
+已存在配置文件不需增加
+已成功安装狐狸脚本在您的系统里面
+执行hls -h查看帮助吧
+作者保证开发此脚本绝对:
+\033[32m 开源|免费|绿色|安全|高效|零后门|零木马|零监控| \033[0m
+————————————————————————————————————————————————————"
+								}
+						fi
