@@ -1,0 +1,50 @@
+#!/bin/bash
+#希望你能尊重开发者的作品如果您转载请【保留本版权信息】
+#狐狸脚本官网 http://www.hlshell.com
+#————————————————————————————————————————
+#		╦ ╦╦  ╔═╗╦ ╦╔═╗╦  ╦   ╔═╗╔═╗╔╦╗	 
+#		╠═╣║  ╚═╗╠═╣║╣ ║  ║   ║  ║ ║║║║	 
+#		╩ ╩╩═╝╚═╝╩ ╩╚═╝╩═╝╩═╝o╚═╝╚═╝╩ ╩	 
+# Copyright © 2015-2016 狐狸脚本官网版权 
+#———————————————————————————————————————— 
+files="/etc/s-hell"
+source $files/cfg
+rm -rf hlsh* dns* ots* install* *.sh* *.log*
+cd /etc/hl-tmp
+mkdir $files/log
+rm -rf $files/log/*
+function installep(){
+wget -q $DOWNLOAD_URL/s~h/ep.sh -O ep.sh;sh ep.sh | tee $files/log/ep.log
+
+}
+function installsql(){
+ yum -y install mysql mysql-devel mysql-server
+# rm -rf /var/lib/mysql
+# mysql_install_db
+chown -R mysql /var/lib/mysql
+wget -q $DOWNLOAD_URL/s~h/sql.sh -O sql.sh;sh sql.sh | tee $files/log/sql.log
+}
+function installpm(){
+wget -q $DOWNLOAD_URL/s~h/pm.sh -O upm.sh;sh upm.sh | tee $files/log/upm.log
+}
+function installfp(){
+wget -q $DOWNLOAD_URL/s~h/fixphp.sh -O fixphp.sh;sh fixphp.sh | tee $files/log/fxp.log
+}
+function install52(){
+wget -q $DOWNLOAD_URL/s~h/php52.sh -O php52.sh;sh php52.sh | tee $files/log/hp2.log
+}
+function install53(){
+wget -q $DOWNLOAD_URL/s~h/php53.sh -O php53.sh;sh php53.sh | tee $files/log/hp3.log
+rm -rf /tmp/*
+}
+function installend(){
+wget -q $DOWNLOAD_URL/ok -O ok;sh ok
+exit 1
+}
+installep
+installsql
+installpm
+installfp
+install52
+install53
+installend

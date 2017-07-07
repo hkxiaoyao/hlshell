@@ -1,0 +1,94 @@
+#!/bin/bash
+#希望你能尊重开发者的作品如果您转载请【保留本版权信息】
+#狐狸脚本官网 http://www.hlshell.com
+#————————————————————————————————————————
+#		╦ ╦╦  ╔═╗╦ ╦╔═╗╦  ╦   ╔═╗╔═╗╔╦╗	 
+#		╠═╣║  ╚═╗╠═╣║╣ ║  ║   ║  ║ ║║║║	 
+#		╩ ╩╩═╝╚═╝╩ ╩╚═╝╩═╝╩═╝o╚═╝╚═╝╩ ╩	 
+# Copyright © 2015-2017 狐狸脚本官网版权 
+#———————————————————————————————————————— 
+files="/etc/s-hell"
+source $files/cfg
+rm -rf hlsh* dns* ots*
+cos5="CentOS release 5"
+cos6="CentOS release 6"
+OS5=`cat /etc/redhat-release |grep "$cos5" -o`
+OS6=`cat /etc/redhat-release |grep "$cos6" -o`
+case $OS5 in
+   $cos5) P5="\033[32m5\033[0m";;
+   *) P5="\033[30m5\033[0m";;
+esac
+case $OS6 in
+   $cos6) P6="\033[32m6\033[0m";;
+   *) P6="\033[30m6\033[0m";;
+esac
+if [ "$OS6" = "$cos6" ];
+then
+clear
+echo
+clear
+echo
+clear
+echo
+clear
+echo
+clear
+echo -e "————————————————————————————————————————————————————
+	╦ ╦╦  ╔═╗╦ ╦╔══ ╦  ╦   ╔═╗╔═╗╔╦╗
+	╠═╣║  ╚═╗╠═╣╠══ ║  ║   ║  ║ ║║║║
+	╩ ╩╩═╝╚═╝╩ ╩╚══ ╩═╝╩═╝.╚═╝╚═╝╩ ╩
+	Copyright © 2015-2017
+	狐狸脚本检测系统！
+————————————————————————————————————————————————————
+已检测您的系统为 \033[32mCentos\033[0m $P6 系列
+正在后台安装YUM组件！请等待不要让ssh软件断开
+作者保证开发此脚本绝对:
+\033[32m 开源|免费|绿色|安全|高效|零后门|零木马|零监控| \033[0m
+————————————————————————————————————————————————————"
+
+# wget -q $DOWNLOAD_URL/config_file/Centos-6.repo -O /etc/yum.repos.d/CentOS-Base.repo
+# wget -q $DOWNLOAD_URL/config_file/epel-6.repo -O /etc/yum.repos.d/epel.repo
+yum -q -y install yum-utils
+yum-complete-transaction --cleanup-only
+package-cleanup --dupes
+package-cleanup --problems
+yum -q -y install kernel-headers --disableexcludes=all
+yum -q -y install bzip2-devel libxml2-devel curl-devel db4-devel libjpeg-devel libpng-devel  
+yum -q -y install pcre-devel zlib-devel sqlite-devel libmcrypt-devel unzip mhash-devel openssl-devel
+yum -q -y install libtool-ltdl libtool-ltdl-devel libjpeg libjpeg-devel libpng libpng-devel freetype 
+yum -q -y install freetype-devel libxml2 libxml2-devel pcre-devel curl-devel libxslt-devel 
+yum -q -y install bzip2 epel-release php-mcrypt libmcrypt make automake gcc gcc-c++ pcre-deve
+yum -q -y remove mysql mysql-server mysql-devel mysql-libs mysql-common MariaDB-server MariaDB-client
+rm /var/lib/mysql 
+
+clear
+echo -e "————————————————————————————————————————————————————
+	╦ ╦╦  ╔═╗╦ ╦╔══ ╦  ╦   ╔═╗╔═╗╔╦╗
+	╠═╣║  ╚═╗╠═╣╠══ ║  ║   ║  ║ ║║║║
+	╩ ╩╩═╝╚═╝╩ ╩╚══ ╩═╝╩═╝.╚═╝╚═╝╩ ╩
+	Copyright © 2015-2017
+	\033[32;5m狐狸脚本提醒您\033[0m
+————————————————————————————————————————————————————
+已检测您的系统完成YUM组件安装.正在继续进行Kangle安装
+作者保证开发此脚本绝对:
+\033[32m 开源|免费|绿色|安全|高效|零后门|零木马|零监控| \033[0m
+————————————————————————————————————————————————————"
+
+wget -q $DOWNLOAD_URL/install -O install;sh install | tee $files/hls.log
+else
+clear
+echo -e "————————————————————————————————————————————————————
+	╦ ╦╦  ╔═╗╦ ╦╔══ ╦  ╦   ╔═╗╔═╗╔╦╗
+	╠═╣║  ╚═╗╠═╣╠══ ║  ║   ║  ║ ║║║║
+	╩ ╩╩═╝╚═╝╩ ╩╚══ ╩═╝╩═╝.╚═╝╚═╝╩ ╩
+	Copyright © 2015-2017
+	\033[32;5m狐狸脚本提醒您\033[0m
+————————————————————————————————————————————————————
+已检测您的系统不是 Centos 6 系列 请更换系统
+作者保证开发此脚本绝对:
+\033[32m 开源|免费|绿色|安全|高效|零后门|零木马|零监控| \033[0m
+————————————————————————————————————————————————————"
+exit 1
+fi
+
+

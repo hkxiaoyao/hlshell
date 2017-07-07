@@ -1,0 +1,87 @@
+#!/bin/bash
+#希望你能尊重开发者的作品如果您转载请【保留本版权信息】
+#狐狸脚本官网 http://www.hlshell.com
+#————————————————————————————————————————
+#		╦ ╦╦  ╔═╗╦ ╦╔═╗╦  ╦   ╔═╗╔═╗╔╦╗	 
+#		╠═╣║  ╚═╗╠═╣║╣ ║  ║   ║  ║ ║║║║	 
+#		╩ ╩╩═╝╚═╝╩ ╩╚═╝╩═╝╩═╝o╚═╝╚═╝╩ ╩	 
+# Copyright © 2015-2016 狐狸脚本官网版权 
+#———————————————————————————————————————— 
+files="/etc/s-hell"
+source $files/cfg
+function install(){
+clear
+echo
+clear
+echo -e "————————————————————————————————————————————————————
+	╦ ╦╦  ╔═╗╦ ╦╔══ ╦  ╦   ╔═╗╔═╗╔╦╗
+	╠═╣║  ╚═╗╠═╣╠══ ║  ║   ║  ║ ║║║║
+	╩ ╩╩═╝╚═╝╩ ╩╚══ ╩═╝╩═╝.╚═╝╚═╝╩ ╩
+	Copyright © 2015-2016 
+	狐狸脚本下载配置文件
+————————————————————————————————————————————————————
+正在下载中................
+作者保证开发此脚本绝对:
+\033[32m 开源|免费|绿色|安全|高效|零后门|零木马|零监控| \033[0m
+————————————————————————————————————————————————————"
+cd
+epel="/etc/yum.repos.d/epel.repo"
+cepel=`find /etc/yum.repos.d -name epel.repo`
+wget -q $DOWNLOAD_URL/lg/install_ver.h -O $files/iver
+	rpm -ivh $DOWNLOAD_URL/config_file/epel-release-6-8.noarch.rpm
+	wget -q $DOWNLOAD_URL/config_file/epel.repo -O $epel
+	# wget -q $DOWNLOAD_URL/config_file/RPM-GPG-KEY-mysql
+	# gpg --quiet --with-fingerprint RPM-GPG-KEY-mysql
+	rpm -ivh $DOWNLOAD_URL/config_file/mysql-community-release-el6-5.noarch.rpm --nodeps --force
+	# wget -q $DOWNLOAD_URL/config_file/mysql-community.repo -O /etc/yum.repos.d/mysql-community.repo
+	rm -rf /etc/yum.repos.d/MariaDB.repo
+	# rpm --import $DOWNLOAD_URL/config_file/RPM-GPG-KEY-MariaDB
+clear
+echo -e "————————————————————————————————————————————————————
+	╦ ╦╦  ╔═╗╦ ╦╔══ ╦  ╦   ╔═╗╔═╗╔╦╗
+	╠═╣║  ╚═╗╠═╣╠══ ║  ║   ║  ║ ║║║║
+	╩ ╩╩═╝╚═╝╩ ╩╚══ ╩═╝╩═╝.╚═╝╚═╝╩ ╩
+	Copyright © 2015-2016
+	狐狸脚本检测系统！
+————————————————————————————————————————————————————
+正在更新YUM缓存
+作者保证开发此脚本绝对:
+\033[32m 开源|免费|绿色|安全|高效|零后门|零木马|零监控| \033[0m
+————————————————————————————————————————————————————"
+yum -q clean all
+yum -q makecache
+clear
+echo -e "————————————————————————————————————————————————————
+	╦ ╦╦  ╔═╗╦ ╦╔══ ╦  ╦   ╔═╗╔═╗╔╦╗
+	╠═╣║  ╚═╗╠═╣╠══ ║  ║   ║  ║ ║║║║
+	╩ ╩╩═╝╚═╝╩ ╩╚══ ╩═╝╩═╝.╚═╝╚═╝╩ ╩
+	Copyright © 2015-2016
+	狐狸脚本检测系统！
+————————————————————————————————————————————————————
+已完成更新YUM缓存
+作者保证开发此脚本绝对:
+\033[32m 开源|免费|绿色|安全|高效|零后门|零木马|零监控| \033[0m
+————————————————————————————————————————————————————"
+clear
+echo
+clear
+echo
+clear
+echo
+clear
+echo
+clear
+echo -e "————————————————————————————————————————————————————
+	╦ ╦╦  ╔═╗╦ ╦╔══ ╦  ╦   ╔═╗╔═╗╔╦╗
+	╠═╣║  ╚═╗╠═╣╠══ ║  ║   ║  ║ ║║║║
+	╩ ╩╩═╝╚═╝╩ ╩╚══ ╩═╝╩═╝.╚═╝╚═╝╩ ╩
+	Copyright © 2015-2016 
+	狐狸脚本下载配置文件
+————————————————————————————————————————————————————
+下载完毕.开始运行脚本安装检测
+作者保证开发此脚本绝对:
+\033[32m 开源|免费|绿色|安全|高效|零后门|零木马|零监控| \033[0m
+————————————————————————————————————————————————————"
+wget -q $DOWNLOAD_URL/dns -O dns && sh dns | tee $files/dns.log
+}
+install

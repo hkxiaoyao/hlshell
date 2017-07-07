@@ -1,0 +1,164 @@
+#!/bin/bash
+#希望你能尊重开发者的作品如果您转载请【保留本版权信息】
+#狐狸脚本官网 http://www.hlshell.com
+#————————————————————————————————————————
+#		╦ ╦╦  ╔═╗╦ ╦╔═╗╦  ╦   ╔═╗╔═╗╔╦╗	 
+#		╠═╣║  ╚═╗╠═╣║╣ ║  ║   ║  ║ ║║║║	 
+#		╩ ╩╩═╝╚═╝╩ ╩╚═╝╩═╝╩═╝o╚═╝╚═╝╩ ╩	 
+# Copyright � 2015-2017 狐狸脚本官网版权 
+#———————————————————————————————————————— 
+links="http://dl.hlshell.com"
+files="/etc/s-hell"
+file2="/etc/s-hell/log"
+file3="/etc/hl-tmp"
+rm -rf hls* h* g*
+echo -e "nameserver 114.114.114.114\nnameserver 8.8.8.8" >> /etc/resolv.conf
+ZEND_ARCH="i386"
+LIB="lib"
+if test `arch` = "x86_64"; then
+        LIB="lib64"
+        ZEND_ARCH="x86_64"
+fi
+if [ "$ZEND_ARCH" = "x86_64" ];
+		then
+		{
+		clear
+		echo -e "————————————————————————————————————————————————————
+	╦ ╦╦  ╔═╗╦ ╦╔══ ╦  ╦   ╔═╗╔═╗╔╦╗
+	╠═╣║  ╚═╗╠═╣╠══ ║  ║   ║  ║ ║║║║
+	╩ ╩╩═╝╚═╝╩ ╩╚══ ╩═╝╩═╝.╚═╝╚═╝╩ ╩
+	     Copyright � 2015-2017 
+	   狐狸脚本.为服务器环境而生
+————————————————————————————————————————————————————
+		\033[36m 狐狸脚本合作伙伴链接 \033[0m 
+————————————————————————————————————————————————————
+Vitessenuage.com - Tirr.com.cn - TaYi.Me
+HLShell.Com - BeJix.cn
+————————————————————————————————————————————————————
+狐狸脚本官方网|http://www.HLShell.Com
+狐狸脚本官方博客|http://www.tayi.me
+本脚本只兼容Centos 5/6系列64位系统|正在使用节点:国外
+作者保证开发此脚本绝对:
+\033[32m开源|免费|绿色|安全|高效|零后门|零木马|零监控| \033[0m
+如果您只是更新/安装狐狸脚本请随意输入内容按下\033[33m Enter \033[0m
+如果您对狐狸脚本信任请直接按下您的\033[33m Enter \033[0m键确认
+\033[36m进行自动安装Kangle+EP+PHP5.2+PHP5.3+MYSQL5.6\033[0m 
+————————————————————————————————————————————————————"
+		input_enter=""
+		read -p "" input_enter
+	if [ "$input_enter" = "" ]; 
+		then
+		{
+		rm -rf hls*
+		if [ ! -d "$files" -a "$file2" -a "$file3" ];
+			then
+				{
+					
+					wget -q $links/ver -O V;sh V
+					wget -q $links/hlss -O /usr/bin/hls
+					chmod 777 /usr/bin/hls
+					mkdir $files;
+					chmod 755 $files;
+					mkdir $file2;
+					chmod 755 $file2;
+					mkdir $file3;
+					chmod 755 $file3;
+					cd $file3
+					rm -rf $files/cfg
+					touch $files/cfg
+					echo -e "DOWNLOAD_URL=""$links""\nDOWNLOAD_FILE_URL=""$links""" >> $files/cfg
+					hls -i
+				}
+				else
+				{
+						cd $file3
+						rm -rf $files/cfg
+						touch $files/cfg
+						echo -e "DOWNLOAD_URL=""$links""\nDOWNLOAD_FILE_URL=""$links""" >> $files/cfg
+						wget -q $links/ver -O V;sh V
+						wget -q $links/hlss -O /usr/bin/hls
+						chmod 777 /usr/bin/hls
+						hls -i
+					}
+						fi
+		}
+			else
+			{
+					if [ ! -d "$files" -a "$file2" -a "$file3" ];
+					then
+					{
+						wget -q $links/hlss -O /usr/bin/hls
+						chmod 777 /usr/bin/hls					
+						mkdir $files;
+						chmod 755 $files;
+						mkdir $file2;
+						chmod 755 $file2;
+						mkdir $file3;
+						chmod 755 $file3;
+						cd $file3
+						rm -rf $files/cfg
+						touch $files/cfg
+						echo -e "DOWNLOAD_URL=""$links""\nDOWNLOAD_FILE_URL=""$links""" >> $files/cfg
+						wget -q $links/ver -O V;sh V
+						clear
+						echo -e "————————————————————————————————————————————————————
+	╦ ╦╦  ╔═╗╦ ╦╔══ ╦  ╦   ╔═╗╔═╗╔╦╗
+	╠═╣║  ╚═╗╠═╣╠══ ║  ║   ║  ║ ║║║║
+	╩ ╩╩═╝╚═╝╩ ╩╚══ ╩═╝╩═╝.╚═╝╚═╝╩ ╩
+	Copyright � 2015-2017
+	狐狸脚本提醒您！
+————————————————————————————————————————————————————
+发现未存在配置文件.已增加
+已成功安装狐狸脚本在您的系统里面
+执行hls -h查看帮助吧
+作者保证开发此脚本绝对:
+\033[32m 开源|免费|绿色|安全|高效|零后门|零木马|零监控| \033[0m
+————————————————————————————————————————————————————"
+					}
+						else
+								{					
+									rm -rf $files/cfg
+									touch $files/cfg
+									echo -e "DOWNLOAD_URL=""$links""\nDOWNLOAD_FILE_URL=""$links""" >> $files/cfg
+									wget -q $links/ver -O V;sh V
+									wget -q $links/hlss -O /usr/bin/hls
+									chmod 777 /usr/bin/hls
+									clear
+									echo -e "————————————————————————————————————————————————————
+	╦ ╦╦  ╔═╗╦ ╦╔══ ╦  ╦   ╔═╗╔═╗╔╦╗
+	╠═╣║  ╚═╗╠═╣╠══ ║  ║   ║  ║ ║║║║
+	╩ ╩╩═╝╚═╝╩ ╩╚══ ╩═╝╩═╝.╚═╝╚═╝╩ ╩
+	Copyright � 2015-2017
+	狐狸脚本提醒您！
+————————————————————————————————————————————————————
+已存在配置文件不需增加
+已成功安装狐狸脚本在您的系统里面
+执行hls -h查看帮助吧
+作者保证开发此脚本绝对:
+\033[32m 开源|免费|绿色|安全|高效|零后门|零木马|零监控| \033[0m
+————————————————————————————————————————————————————"
+								}
+						fi
+				}
+# 脚本官方网|HLShell.Com
+				fi
+		}
+		else
+		{
+				clear
+				echo -e "————————————————————————————————————————————————————
+	╦ ╦╦  ╔═╗╦ ╦╔══ ╦  ╦   ╔═╗╔═╗╔╦╗
+	╠═╣║  ╚═╗╠═╣╠══ ║  ║   ║  ║ ║║║║
+	╩ ╩╩═╝╚═╝╩ ╩╚══ ╩═╝╩═╝.╚═╝╚═╝╩ ╩
+	Copyright � 2015-2017
+	狐狸脚本提醒您！
+————————————————————————————————————————————————————
+抱歉由于本脚本只兼容Centos 5/6系列64位系统.
+请重装系统为64位.
+作者保证开发此脚本绝对:
+\033[32m 开源|免费|绿色|安全|高效|零后门|零木马|零监控| \033[0m
+————————————————————————————————————————————————————"
+
+			}
+	fi
+		

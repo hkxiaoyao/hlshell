@@ -1,0 +1,73 @@
+#!/bin/bash
+#希望你能尊重开发者的作品如果您转载请【保留本版权信息】
+#狐狸脚本官网 http://www.hlshell.com
+#————————————————————————————————————————
+#		╦ ╦╦  ╔═╗╦ ╦╔═╗╦  ╦   ╔═╗╔═╗╔╦╗	 
+#		╠═╣║  ╚═╗╠═╣║╣ ║  ║   ║  ║ ║║║║	 
+#		╩ ╩╩═╝╚═╝╩ ╩╚═╝╩═╝╩═╝o╚═╝╚═╝╩ ╩	 
+# Copyright © 2015-2016 狐狸脚本官网版权 
+#———————————————————————————————————————— 
+files="/etc/s-hell"
+source $files/iver
+PREFIX2="/vhs/kangle/ext/tpl_php52/bin/php -v |grep "5.2.17p1" -o"
+PREFIX="/vhs/kangle/ext/php"
+pv2=`"$PREFIX"52/bin/php -v |grep "$PHP52" -o|sed -n "1p"`
+pv3=`"$PREFIX"53/bin/php -v |grep "$PHP53" -o|sed -n "1p"`
+pv4=`"$PREFIX"54/bin/php -v |grep "$PHP54" -o|sed -n "1p"`
+pv5=`"$PREFIX"55/bin/php -v |grep "$PHP55" -o|sed -n "1p"`
+pv6=`"$PREFIX"56/bin/php -v |grep "$PHP56" -o|sed -n "1p"`
+pv7=`"$PREFIX"70/bin/php -v |grep "$PHP7" -o|sed -n "1p"`
+OS=`uname`
+IO="" # store IP
+case $OS in
+   Linux) IP=`curl -s http://ipinfo.io/|grep 'ip'|sed -n '1p'|cut -d '"' -f4`;;
+   FreeBSD|OpenBSD) IP=`curl -s http://ipinfo.io/|grep 'ip'|sed -n '1p'|cut -d '"' -f4` ;;
+   SunOS) IP=`curl -s http://ipinfo.io/|grep 'ip'|sed -n '1p'|cut -d '"' -f4` ;;   
+   *) IP="Unknown";;
+esac
+case $pv2 in
+   $PHP52)  P2="PHP-$PHP52已安装";;
+   *) P2="PHP-$PHP52未安装/更新或安装失败";;
+esac
+case $pv3 in
+   $PHP53) P3="PHP-$PHP53已安装";;
+   *) P3="PHP-$PHP53未安装/更新或安装失败";;
+esac
+case $pv4 in
+   $PHP54) P4="PHP-$PHP54已安装";;
+   *) P4="PHP-$PHP54未安装/更新或安装失败";;
+esac
+case $pv5 in
+   $PHP55) P5="PHP-$PHP55已安装";;
+   *) P5="PHP-$PHP55未安装/更新或安装失败";;
+esac
+case $pv6 in
+   $PHP56) P6="PHP-$PHP56已安装";;
+   *) P6="PHP-$PHP56未安装/更新或安装失败";;
+esac
+case $pv7 in
+   $PHP7) P7="PHP-$PHP7已安装";;
+   *) P7="PHP-$PHP7未安装/更新或安装失败";;
+esac
+
+clear
+echo -e "————————————————————————————————————————————————————
+	╦ ╦╦  ╔═╗╦ ╦╔══ ╦  ╦   ╔═╗╔═╗╔╦╗
+	╠═╣║  ╚═╗╠═╣╠══ ║  ║   ║  ║ ║║║║
+	╩ ╩╩═╝╚═╝╩ ╩╚══ ╩═╝╩═╝.╚═╝╚═╝╩ ╩
+	Copyright © 2015-2016
+	\033[32;5m狐狸脚本提醒您\033[0m
+————————————————————————————————————————————————————
+狐狸脚本默认安装PHP52-PHP53
+如有需要安装其他PHP请执行 hls -h 帮助
+PHP52:\033[32;5m"$P2"\033[0m
+PHP53:\033[32;5m"$P3"\033[0m
+PHP54:\033[32;5m"$P4"\033[0m
+PHP55:\033[32;5m"$P5"\033[0m
+PHP56:\033[32;5m"$P6"\033[0m
+PHP70:\033[32;5m"$P7"\033[0m
+请使用浏览器访问 
+http://"$IP":3312/admin
+Easypanel 账号: \033[32;5madmin\033[0m 	Mysql 账号: \033[32;5mroot\033[0m
+Easypanel 密码: \033[32;5mkangle\033[0m	Mysql 密码: \033[32;5mmysql\033[0m
+————————————————————————————————————————————————————"

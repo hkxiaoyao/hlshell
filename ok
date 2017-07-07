@@ -1,0 +1,49 @@
+#!/bin/bash
+#希望你能尊重开发者的作品如果您转载请【保留本版权信息】
+#狐狸脚本官网 http://www.hlshell.com
+#————————————————————————————————————————
+#		╦ ╦╦  ╔═╗╦ ╦╔═╗╦  ╦   ╔═╗╔═╗╔╦╗	 
+#		╠═╣║  ╚═╗╠═╣║╣ ║  ║   ║  ║ ║║║║	 
+#		╩ ╩╩═╝╚═╝╩ ╩╚═╝╩═╝╩═╝o╚═╝╚═╝╩ ╩	 
+# Copyright © 2015-2016 狐狸脚本官网版权 
+#———————————————————————————————————————— 
+file="/etc/s-hell"
+source $file/iver
+files="/etc/s-hell"
+PREFIX2="/vhs/kangle/ext"
+PREFIX="/vhs/kangle/ext/php"
+pv2=`"$PREFIX"52/bin/php -v |sed -n '1p' |cut -d ' ' -f2|grep "$PHP52" -o`
+pv3=`"$PREFIX"53/bin/php -v |grep "$PHP53" -o`
+OS=`uname`
+IO="" # store IP
+case $OS in
+   Linux) IP=`curl -s http://ipinfo.io/|grep 'ip'|sed -n '1p'|cut -d '"' -f4`;;
+   FreeBSD|OpenBSD) IP=`curl -s http://ipinfo.io/|grep 'ip'|sed -n '1p'|cut -d '"' -f4` ;;
+   SunOS) IP=`curl -s http://ipinfo.io/|grep 'ip'|sed -n '1p'|cut -d '"' -f4` ;;   
+   *) IP="Unknown";;
+esac
+case $pv2 in
+   $PHP52)  P2="PHP-$PHP52已安装";;
+   *) P2="PHP-$PHP52未安装或安装失败";;
+esac
+case $pv3 in
+   $PHP53) P3="PHP-$PHP53已安装";;
+   *) P3="PHP-$PHP53未安装或安装失败";;
+esac
+clear
+echo -e "————————————————————————————————————————————————————
+	╦ ╦╦  ╔═╗╦ ╦╔══ ╦  ╦   ╔═╗╔═╗╔╦╗
+	╠═╣║  ╚═╗╠═╣╠══ ║  ║   ║  ║ ║║║║
+	╩ ╩╩═╝╚═╝╩ ╩╚══ ╩═╝╩═╝.╚═╝╚═╝╩ ╩
+	Copyright © 2015-2016
+	\033[32;5m狐狸脚本提醒您\033[0m
+————————————————————————————————————————————————————
+狐狸脚本默认安装PHP52-PHP53 
+如有需要安装其他PHP请执行 hls -h 帮助
+PHP52:\033[32;5m"$P2"\033[0m
+PHP53:\033[32;5m"$P3"\033[0m
+请使用浏览器访问
+http://"$IP":3312/admin
+Easypanel 账号: \033[32;5madmin\033[0m 	Mysql 账号: \033[32;5mroot\033[0m
+Easypanel 密码: \033[32;5mkangle\033[0m	Mysql 密码: \033[32;5mmysql\033[0m
+————————————————————————————————————————————————————"

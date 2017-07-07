@@ -1,0 +1,191 @@
+#!/bin/bash
+#希望你能尊重开发者的作品如果您转载请【保留本版权信息】
+#狐狸脚本官网 http://www.hlshell.com
+#————————————————————————————————————————
+#		╦ ╦╦  ╔═╗╦ ╦╔═╗╦  ╦   ╔═╗╔═╗╔╦╗	 
+#		╠═╣║  ╚═╗╠═╣║╣ ║  ║   ║  ║ ║║║║	 
+#		╩ ╩╩═╝╚═╝╩ ╩╚═╝╩═╝╩═╝o╚═╝╚═╝╩ ╩	 
+# Copyright © 2015-2016 狐狸脚本官网版权 
+#————————————————————————————————————————
+files="/etc/s-hell"
+tmpfile="/etc/hl-tmp" 
+source $files/cfg
+hlv=`wget -q $DOWNLOAD_URL/lg/install_ver.h -O $files/iver;wget -q $DOWNLOAD_URL/ckv -O v;sh v
+`
+if [ $1 == "-h" ]
+then
+clear
+clear
+echo -e  "\033[36m————————————————————————————————————————————————————
+	╦ ╦╦  ╔═╗╦ ╦╔══ ╦  ╦   ╔═╗╔═╗╔╦╗
+	╠═╣║  ╚═╗╠═╣╠══ ║  ║   ║  ║ ║║║║
+	╩ ╩╩═╝╚═╝╩ ╩╚══ ╩═╝╩═╝.╚═╝╚═╝╩ ╩
+	 Copyright © 2015-2017 节点:国外 
+	   \033[32m 狐狸脚本-帮助 Ver:"$hlv"\033[0m \033[36m
+————————————————————————————————————————————————————
+输入 \033[32mhls -c\033[0m \033[36m 查看安装信息与PHP安装状态
+输入 \033[32mhls -i\033[0m \033[36m 运行HLS脚本进行安装
+输入 \033[32mhls -f\033[0m \033[36m 运行修复脚本
+输入 \033[32mhls -x\033[0m \033[36m 自动修改MySQL密码为： mysql 
+输入 \033[32mhls -xs\033[0m \033[36m 自定义修改mysql密码
+输入 \033[32mhls -rk\033[0m \033[36m 安全卸载Kangle功能
+输入 \033[32mhls -pm\033[0m \033[36m 安装PHPMYadmin最新版(php53专用版)
+输入 \033[32mhls -pa\033[0m \033[36m 自动检测运行安装 PHP5.2-7.0
+输入 \033[32mhls -p2\033[0m \033[36m 自动检测运行安装 PHP5.2
+输入 \033[32mhls -p3\033[0m \033[36m 自动检测运行安装 PHP5.3
+输入 \033[32mhls -p4\033[0m \033[36m 自动检测运行安装 PHP5.4
+输入 \033[32mhls -p5\033[0m \033[36m 自动检测运行安装 PHP5.5
+输入 \033[32mhls -p6\033[0m \033[36m 自动检测运行安装 PHP5.6
+输入 \033[32mhls -p7\033[0m \033[36m 自动检测运行安装 PHP7.0
+输入 \033[32mhls -p71\033[0m \033[36m 自动检测运行安装 PHP7.1
+输入 \033[32mhls -rp\033[0m \033[36m 自定义卸载PHP版本功能\033[0m"
+#输入 \033[32mhls -rm\033[0m \033[36m 卸载狐狸快捷脚本
+#修复php脚本
+elif [ $1 == "-f" ]
+then
+cd $tmpfile
+rm -rf $files/log/fp.log
+wget -q $DOWNLOAD_URL/lg/install_ver.h -O $files/iver
+wget -q $DOWNLOAD_URL/s~h/fixphp.sh -O fp;sh fp | tee $files/log/fp.log
+#安装脚本
+elif [ $1 == "-yum" ]
+then
+cd $tmpfile
+wget -q $DOWNLOAD_URL/config_file/Centos-6.repo -O /etc/yum.repos.d/CentOS-Base.repo
+wget -q $DOWNLOAD_URL/config_file/epel-6.repo -O /etc/yum.repos.d/epel.repo
+yum clean all
+yum makecache
+elif [ $1 == "-i" ]
+then
+cd $tmpfile
+rm -rf $files/log/hls.log
+wget -q $DOWNLOAD_URL/hls -O hls;sh hls
+#自动修改mysql密码
+elif [ $1 == "-x" ]
+then
+cd $tmpfile
+wget -q $DOWNLOAD_URL/lg/install_ver.h -O $files/iver
+wget -q $DOWNLOAD_URL/s~h/reset.sh -O reset;sh reset | tee $files/log/res.log
+#更新版本
+elif [ $1 == "-uk" ]
+then
+cd $tmpfile
+rm -rf /vhs/kangle/nodewww/webftp/framework/runtime.php
+wget -q $DOWNLOAD_URL/lg/install_ver.h -O $files/iver;wget -q $DOWNLOAD_URL/s~h/ep.sh -O ep;sh ep
+#更新mysql版本
+elif [ $1 == "-usql" ]
+then
+cd $tmpfile
+wget -q $DOWNLOAD_URL/lg/install_ver.h -O $files/iver;wget -q $DOWNLOAD_URL/s~h/sql.sh -O sql;sh sql
+#卸载kangle
+elif [ $1 == "-rk" ]
+then
+cd $tmpfile
+wget -q $DOWNLOAD_URL/lg/install_ver.h -O $files/iver
+wget -q $DOWNLOAD_URL/rk -O rk;sh rk
+#查看安装默认账号信息
+elif [ $1 == "-c" ]
+then
+cd $tmpfile
+wget -q $DOWNLOAD_URL/lg/install_ver.h -O $files/iver
+wget -q $DOWNLOAD_URL/cke -O ck;sh ck
+#修改自定义mysql密码
+elif [ $1 == "-xs" ]
+then
+cd $tmpfile
+rm -rf $files/log/xs.log
+wget -q $DOWNLOAD_URL/lg/install_ver.h -O $files/iver
+wget -q $DOWNLOAD_URL/s~h/iset.sh -O xs;sh xs | tee $files/log/xs.log
+#检测安装PHPMYadmin
+elif [ $1 == "-pm" ]
+then
+cd $tmpfile
+rm -rf $files/log/pm.log
+wget -q $DOWNLOAD_URL/lg/install_ver.h -O $files/iver
+wget -q $DOWNLOAD_URL/s~h/upm.sh -O pm;sh pm | tee $files/log/pm.log
+#检测安装全部PHP
+elif [ $1 == "-pa" ]
+then
+cd $tmpfile
+rm -rf $files/log/p*.log
+wget -q $DOWNLOAD_URL/lg/install_ver.h -O $files/iver
+wget -q $DOWNLOAD_URL/s~h/php52.sh -O p2;sh p2 | tee $files/log/p2.log
+wget -q $DOWNLOAD_URL/s~h/php53.sh -O p3;sh p3 | tee $files/log/p3.log
+wget -q $DOWNLOAD_URL/s~h/php54.sh -O p4;sh p4 | tee $files/log/p4.log
+wget -q $DOWNLOAD_URL/s~h/php55.sh -O p5;sh p5 | tee $files/log/p5.log
+wget -q $DOWNLOAD_URL/s~h/php56.sh -O p6;sh p6 | tee $files/log/p6.log
+wget -q $DOWNLOAD_URL/s~h/php7.sh -O p7;sh p7 | tee $files/log/p7.log
+#卸载PHP
+elif [ $1 == "-rp" ]
+then
+cd $tmpfile
+rm -rf $files/log/rp.log
+wget -q $DOWNLOAD_URL/lg/install_ver.h -O $files/iver
+wget -q $DOWNLOAD_URL/s~h/rp.sh -O rp;sh rp | tee $files/log/rp.log
+#检测安装PHP52
+elif [ $1 == "-p2" ]
+then
+cd $tmpfile
+rm -rf $files/log/p2.log
+wget -q $DOWNLOAD_URL/lg/install_ver.h -O $files/iver
+wget -q $DOWNLOAD_URL/s~h/php52.sh -O p2;sh p2 | tee $files/log/p2.log
+#检测安装PHP53
+elif [ $1 == "-p3" ]
+then
+cd $tmpfile
+rm -rf $files/log/p3.log
+wget -q $DOWNLOAD_URL/lg/install_ver.h -O $files/iver
+wget -q $DOWNLOAD_URL/s~h/php53.sh -O p3;sh p3 | tee $files/log/p3.log
+#检测安装PHP54
+elif [ $1 == "-p4" ]
+then
+cd $tmpfile
+rm -rf $files/log/p4.log
+wget -q $DOWNLOAD_URL/lg/install_ver.h -O $files/iver
+wget -q $DOWNLOAD_URL/s~h/php54.sh -O p4;sh p4 | tee $files/log/p4.log
+#检测安装PHP55
+elif [ $1 == "-p5" ]
+then
+cd $tmpfile
+rm -rf $files/log/p5.log
+wget -q $DOWNLOAD_URL/lg/install_ver.h -O $files/iver
+wget -q $DOWNLOAD_URL/s~h/php55.sh -O p5;sh p5 | tee $files/log/p5.log
+#检测安装PHP56
+elif [ $1 == "-p6" ]
+then
+cd $tmpfile
+rm -rf $files/log/p6.log
+wget -q $DOWNLOAD_URL/lg/install_ver.h -O $files/iver
+wget -q $DOWNLOAD_URL/s~h/php56.sh -O p6;sh p6 | tee $files/log/p6.log
+#检测安装PHP7
+elif [ $1 == "-p7" ]
+then
+cd $tmpfile
+rm -rf $files/log/p7.log
+wget -q $DOWNLOAD_URL/lg/install_ver.h -O $files/iver
+wget -q $DOWNLOAD_URL/s~h/php7.sh -O p7;sh p7 | tee $files/log/p7.log
+#检测安装PHP71
+elif [ $1 == "-p71" ]
+then
+cd $tmpfile
+rm -rf $files/log/p71.log
+wget -q $DOWNLOAD_URL/lg/install_ver.h -O $files/iver
+wget -q $DOWNLOAD_URL/s~h/php71.sh -O p71;sh p71 | tee $files/log/p71.log
+#检测更新脚本
+elif [ $1 == "-u" ]
+then
+cd $tmpfile
+wget -q $DOWNLOAD_URL/ns -O u;sh u
+else
+clear
+echo -e "\033[36m————————————————————————————————————————————————————
+	╦ ╦╦  ╔═╗╦ ╦╔══ ╦  ╦   ╔═╗╔═╗╔╦╗
+	╠═╣║  ╚═╗╠═╣╠══ ║  ║   ║  ║ ║║║║
+	╩ ╩╩═╝╚═╝╩ ╩╚══ ╩═╝╩═╝.╚═╝╚═╝╩ ╩
+	 Copyright © 2015-2017 节点:国外 
+	   \033[32m 狐狸脚本-帮助快捷指令-帮助\033[0m \033[36m
+\033[36m————————————————————————————————————————————————————
+		输入hls -h 查看帮助
+————————————————————————————————————————————————————\033[0m \033[36m"
+
+fi
