@@ -25,9 +25,9 @@ echo -e  "\033[36m————————————————————�
 ————————————————————————————————————————————————————
 输入 \033[32mhls -c\033[0m \033[36m 查看安装信息与PHP安装状态
 输入 \033[32mhls -i\033[0m \033[36m 运行HLS脚本进行安装
-输入 \033[32mhls -f\033[0m \033[36m 运行修复脚本
 输入 \033[32mhls -x\033[0m \033[36m 自动修改MySQL密码为： mysql 
 输入 \033[32mhls -xs\033[0m \033[36m 自定义修改mysql密码
+输入 \033[32mhls -sp\033[0m \033[36m 设置端口
 输入 \033[32mhls -rk\033[0m \033[36m 安全卸载Kangle功能
 输入 \033[32mhls -pm\033[0m \033[36m 安装PHPMYadmin最新版(php53专用版)
 输入 \033[32mhls -pa\033[0m \033[36m 自动检测运行安装 PHP5.2-7.0
@@ -41,12 +41,17 @@ echo -e  "\033[36m————————————————————�
 输入 \033[32mhls -rp\033[0m \033[36m 自定义卸载PHP版本功能\033[0m"
 #输入 \033[32mhls -rm\033[0m \033[36m 卸载狐狸快捷脚本
 #修复php脚本
-elif [ $1 == "-f" ]
+elif [ $1 == "-sp" ]
 then
 cd $tmpfile
-rm -rf $files/log/fp.log
-wget -q $DOWNLOAD_URL/lg/install_ver.h -O $files/iver
-wget -q $DOWNLOAD_URL/s~h/fixphp.sh -O fp;sh fp | tee $files/log/fp.log
+/sbin/iptables -I INPUT -p tcp --dport 80 -j ACCEPT
+/sbin/iptables -I INPUT -p tcp --dport 3311 -j ACCEPT
+/sbin/iptables -I INPUT -p tcp --dport 3312 -j ACCEPT
+/sbin/iptables -I INPUT -p tcp --dport 3313 -j ACCEPT
+/sbin/iptables -I INPUT -p tcp --dport 21 -j ACCEPT
+/etc/rc.d/init.d/iptables save
+service iptables restart
+echo -e '设置端口完毕'
 #安装脚本
 elif [ $1 == "-yum" ]
 then
@@ -71,7 +76,8 @@ elif [ $1 == "-uk" ]
 then
 cd $tmpfile
 rm -rf /vhs/kangle/nodewww/webftp/framework/runtime.php
-wget -q $DOWNLOAD_URL/lg/install_ver.h -O $files/iver;wget -q $DOWNLOAD_URL/s~h/ep.sh -O ep;sh ep
+wget -q $DOWNLOAD_URL/lg/install_ver.h -O $files/iver;
+wget -q $DOWNLOAD_URL/s~h/ep.sh -O ep;sh ep
 #更新mysql版本
 elif [ $1 == "-usql" ]
 then

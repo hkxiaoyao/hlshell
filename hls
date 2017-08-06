@@ -10,10 +10,14 @@
 files="/etc/s-hell"
 source $files/cfg
 function install(){
+cos6="CentOS release 6"
+cos7="CentOS Linux release 7"
+OS6=`cat /etc/redhat-release |grep "$cos6" -o`
+OS7=`cat /etc/redhat-release |grep "$cos7" -o`
+
 clear
-echo
-clear
-echo -e "————————————————————————————————————————————————————
+dlf="
+————————————————————————————————————————————————————
 	╦ ╦╦  ╔═╗╦ ╦╔══ ╦  ╦   ╔═╗╔═╗╔╦╗
 	╠═╣║  ╚═╗╠═╣╠══ ║  ║   ║  ║ ║║║║
 	╩ ╩╩═╝╚═╝╩ ╩╚══ ╩═╝╩═╝.╚═╝╚═╝╩ ╩
@@ -24,6 +28,12 @@ echo -e "———————————————————————�
 作者保证开发此脚本绝对:
 \033[32m 开源|免费|绿色|安全|高效|零后门|零木马|零监控| \033[0m
 ————————————————————————————————————————————————————"
+if [ "$OS6" = "$cos6" ];
+then
+clear
+echo
+echo -e $dlf
+
 cd
 epel="/etc/yum.repos.d/epel.repo"
 cepel=`find /etc/yum.repos.d -name epel.repo`
@@ -36,6 +46,15 @@ wget -q $DOWNLOAD_URL/lg/install_ver.h -O $files/iver
 	# wget -q $DOWNLOAD_URL/config_file/mysql-community.repo -O /etc/yum.repos.d/mysql-community.repo
 	rm -rf /etc/yum.repos.d/MariaDB.repo
 	# rpm --import $DOWNLOAD_URL/config_file/RPM-GPG-KEY-MariaDB
+elif [ "$OS7" = "$cos7" ];
+then
+clear
+echo
+echo -e $dlf
+rpm -ivh https://dl.fedoraproject.org/pub/epel/7/x86_64/e/epel-release-7-10.noarch.rpm
+rm -rf /etc/yum.repos.d/MariaDB.repo
+fi
+	
 clear
 echo -e "————————————————————————————————————————————————————
 	╦ ╦╦  ╔═╗╦ ╦╔══ ╦  ╦   ╔═╗╔═╗╔╦╗

@@ -790,7 +790,7 @@ function displayData(dataJSON)
 			<th class="w_top"><a href="#w_mail">邮件检测</a></th>
 			<th class="w_top"><a href="http://www.yahei.net/tz/tz.zip">探针下载</a></th>
 		</tr>
-	</table>
+	</table>$_SERVER['SERVER_ADDR'];}else{echo @gethostbyname($_SERVER['SERVER_NAME'])
 
 <!--服务器相关参数-->
 <table>
