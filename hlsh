@@ -19,10 +19,10 @@ esac
 # ipget=`curl -s http://ip.taobao.com/service/getIpInfo.php?ip=$IP |cut -d '"' -f12`
 ipget=`curl -k -s 'https://dm-81.data.aliyun.com/rest/160601/ip/getIpInfo.json?ip=119.23.147.232'  -H 'Authorization:APPCODE a10d0cae96e64a2187734980c962453b'|cut -d '"' -f28`
 if [ $ipget = 'CN' ];then
-links="http://cn.hlsh.sh"
+links="http://hlshell.oschina.io"
 jd='国内'
 else
-links="http://hlsh.sh"
+links="http://hlshell.oschina.io"
 jd='国外'
 fi
 files="/etc/s-hell"
