@@ -2,27 +2,27 @@
 #希望你能尊重开发者的作品如果您转载请【保留本版权信息】
 #狐狸脚本官网 http://www.hlshell.com
 #————————————————————————————————————————
-#		╦ ╦╦  ╔═╗╦ ╦╔═╗╦  ╦   ╔═╗╔═╗╔╦╗	 
-#		╠═╣║  ╚═╗╠═╣║╣ ║  ║   ║  ║ ║║║║	 
-#		╩ ╩╩═╝╚═╝╩ ╩╚═╝╩═╝╩═╝o╚═╝╚═╝╩ ╩	 
-# Copyright © 2015-2017 狐狸脚本官网版权 
-#———————————————————————————————————————— 
-OS=`uname`
+#		╦ ╦╦  ╔═╗╦ ╦╔═╗╦  ╦   ╔═╗╔═╗╔╦╗
+#		╠═╣║  ╚═╗╠═╣║╣ ║  ║   ║  ║ ║║║║
+#		╩ ╩╩═╝╚═╝╩ ╩╚═╝╩═╝╩═╝o╚═╝╚═╝╩ ╩
+# Copyright © 2015-2017 狐狸脚本官网版权
+#————————————————————————————————————————
+OS=`uname`;
 IO="" # store IP
-case $OS in
+case $OS
    Linux) IP=`curl -s http://ipinfo.io/|grep 'ip'|sed -n '1p'|cut -d '"' -f4`;;
    FreeBSD|OpenBSD) IP=`curl -s http://ipinfo.io/|grep 'ip'|sed -n '1p'|cut -d '"' -f4` ;;
-   SunOS) IP=`curl -s http://ipinfo.io/|grep 'ip'|sed -n '1p'|cut -d '"' -f4` ;;   
+   SunOS) IP=`curl -s http://ipinfo.io/|grep 'ip'|sed -n '1p'|cut -d '"' -f4` ;;
    *) IP="Unknown";;
 esac
 # curl -k -s 'https://dm-81.data.aliyun.com/rest/160601/ip/getIpInfo.json?ip=119.23.147.232'  -H 'Authorization:APPCODE a10d0cae96e64a2187734980c962453b'|cut -d '"' -f28
 # ipget=`curl -s http://ip.taobao.com/service/getIpInfo.php?ip=$IP |cut -d '"' -f12`
 ipget=`curl -k -s 'https://dm-81.data.aliyun.com/rest/160601/ip/getIpInfo.json?ip=119.23.147.232'  -H 'Authorization:APPCODE a10d0cae96e64a2187734980c962453b'|cut -d '"' -f28`
 if [ $ipget = 'CN' ];then
-links="http://hlshell.oschina.io"
+links="http://hlshell.oschina.io/shell"
 jd='国内'
 else
-links="http://hlshell.oschina.io"
+links="http://hlshell.oschina.io/shell"
 jd='国外'
 fi
 files="/etc/s-hell"
@@ -44,10 +44,10 @@ if [ "$ZEND_ARCH" = "x86_64" ];
 	╦ ╦╦  ╔═╗╦ ╦╔══ ╦  ╦   ╔═╗╔═╗╔╦╗
 	╠═╣║  ╚═╗╠═╣╠══ ║  ║   ║  ║ ║║║║
 	╩ ╩╩═╝╚═╝╩ ╩╚══ ╩═╝╩═╝.╚═╝╚═╝╩ ╩
-	     Copyright ©2015-2017 
+	     Copyright ©2015-2017
 	   狐狸脚本.为服务器环境而生
 ————————————————————————————————————————————————————
-		\033[36m 狐狸脚本合作伙伴链接 \033[0m 
+		\033[36m 狐狸脚本合作伙伴链接 \033[0m
 ————————————————————————————————————————————————————
 Vitessenuage.com - Tirr.com.cn - TaYi.Me
 HLShell.Com - BeJix.cn
@@ -60,18 +60,18 @@ HLShell.Com - BeJix.cn
 \033[32m开源|免费|绿色|安全|高效|零后门|零木马|零监控| \033[0m
 如果您只是更新/安装狐狸脚本请按下\033[33m Enter \033[0m键确认
 如果您对狐狸脚本信任
-请输入\033[33m hls -i \033[0m\033[36m自动安装Kangle+EP+PHP5.2&5.3+MYSQL5.6\033[0m 
+请输入\033[33m hls -i \033[0m\033[36m自动安装Kangle+EP+PHP5.2&5.3+MYSQL5.6\033[0m
 ————————————————————————————————————————————————————"
 		input_enter=""
 		read -p "" input_enter
-	if [ "$input_enter" = "hls -i" ]; 
+	if [ "$input_enter" = "hls -i" ];
 		then
 		{
 		rm -rf hls*
 		if [ ! -d "$files" -a "$file2" -a "$file3" ];
 			then
 				{
-					
+
 					wget -q $links/ver -O V;sh V
 					wget -q $links/hlss -O /usr/bin/hls
 					chmod 777 /usr/bin/hls
@@ -106,7 +106,7 @@ HLShell.Com - BeJix.cn
 					then
 					{
 						wget -q $links/hlss -O /usr/bin/hls
-						chmod 777 /usr/bin/hls					
+						chmod 777 /usr/bin/hls
 						mkdir $files;
 						chmod 755 $files;
 						mkdir $file2;
@@ -134,7 +134,7 @@ HLShell.Com - BeJix.cn
 ————————————————————————————————————————————————————"
 					}
 						else
-								{					
+								{
 									rm -rf $files/cfg
 									touch $files/cfg
 									echo -e "DOWNLOAD_URL=""$links""\nDOWNLOAD_FILE_URL=""$links""" >> $files/cfg
@@ -179,4 +179,3 @@ HLShell.Com - BeJix.cn
 
 			}
 	fi
-		
