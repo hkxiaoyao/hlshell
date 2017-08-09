@@ -1,6 +1,8 @@
 #!/bin/bash
 #希望你能尊重开发者的作品如果您转载请【保留本版权信息】
 #狐狸脚本官网 http://www.hlshell.com
+# ps -e -o 'comm,pcpu,rsz'|grep kangle|awk '{sum += $3} END{print sum}'获取内存显示
+# ps -e -o 'comm,pcpu,rsz'|grep kangle|awk '{sum += $2} END{print sum}'获取CPU百分百显示
 #————————————————————————————————————————
 #		╦ ╦╦  ╔═╗╦ ╦╔═╗╦  ╦   ╔═╗╔═╗╔╦╗
 #		╠═╣║  ╚═╗╠═╣║╣ ║  ║   ║  ║ ║║║║
@@ -9,7 +11,7 @@
 #————————————————————————————————————————
 OS=`uname`;
 IO="" # store IP
-case $OS
+case $OS in
    Linux) IP=`curl -s http://ipinfo.io/|grep 'ip'|sed -n '1p'|cut -d '"' -f4`;;
    FreeBSD|OpenBSD) IP=`curl -s http://ipinfo.io/|grep 'ip'|sed -n '1p'|cut -d '"' -f4` ;;
    SunOS) IP=`curl -s http://ipinfo.io/|grep 'ip'|sed -n '1p'|cut -d '"' -f4` ;;
