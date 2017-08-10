@@ -23,7 +23,7 @@ echo -e "———————————————————————�
 	Copyright © 2015-2016
 	\033[32;5m狐狸脚本提醒您\033[0m
 ————————————————————————————————————————————————————
-狐狸脚本检测到您已安装了 PHP-"$phpv" 
+狐狸脚本检测到您已安装了 PHP-"$phpv"
 不需要重复再次编译安装
 ————————————————————————————————————————————————————"
 exit 1
@@ -82,7 +82,7 @@ rm -rf $PREFIX/zend/ZendGuardLoader.so
 mv -f ZendGuardLoader.so $PREFIX/zend/ZendGuardLoader.so
 rm -rf $PREFIX/ioncube/*
 cd $PREFIX/ioncube/
-wget -q $DOWNLOAD_FILE_URL/file/ioncube-$ZEND_ARCH-5.3.zip 
+wget -q $DOWNLOAD_FILE_URL/file/ioncube-$ZEND_ARCH-5.3.zip
 unzip ioncube-$ZEND_ARCH-5.3.zip
 
 # rm -rf $PREFIX/ioncube/ioncube_loader_lin_5.3.so
@@ -113,4 +113,3 @@ exit 0
 fi
 }
 fi
-

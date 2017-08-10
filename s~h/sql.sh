@@ -55,4 +55,3 @@ mysql -u$User -p$Pass -D $Db -e "ALTER TABLE user ADD authentication_string TEXT
 mysql -u$User -p$Pass -D $Db -e "ALTER TABLE user ADD password_expired ENUM('N','Y') NOT NULL DEFAULT 'N' AFTER authentication_string;"
 service mysqld restart
 echo '完成安装mysql'
-

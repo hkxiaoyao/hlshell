@@ -2,11 +2,11 @@
 #希望你能尊重开发者的作品如果您转载请【保留本版权信息】
 #狐狸脚本官网 http://www.hlshell.com
 #————————————————————————————————————————
-#		╦ ╦╦  ╔═╗╦ ╦╔═╗╦  ╦   ╔═╗╔═╗╔╦╗	 
-#		╠═╣║  ╚═╗╠═╣║╣ ║  ║   ║  ║ ║║║║	 
-#		╩ ╩╩═╝╚═╝╩ ╩╚═╝╩═╝╩═╝o╚═╝╚═╝╩ ╩	 
-# Copyright © 2015-2016 狐狸脚本官网版权 
-#———————————————————————————————————————— 
+#		╦ ╦╦  ╔═╗╦ ╦╔═╗╦  ╦   ╔═╗╔═╗╔╦╗
+#		╠═╣║  ╚═╗╠═╣║╣ ║  ║   ║  ║ ║║║║
+#		╩ ╩╩═╝╚═╝╩ ╩╚═╝╩═╝╩═╝o╚═╝╚═╝╩ ╩
+# Copyright © 2015-2016 狐狸脚本官网版权
+#————————————————————————————————————————
 files="/etc/s-hell"
 source $files/iver
 PREFIX2="/vhs/kangle/ext/tpl_php52/bin/php -v |grep "5.2.17p1" -o"
@@ -22,7 +22,7 @@ IO="" # store IP
 case $OS in
    Linux) IP=`curl -s http://ipinfo.io/|grep 'ip'|sed -n '1p'|cut -d '"' -f4`;;
    FreeBSD|OpenBSD) IP=`curl -s http://ipinfo.io/|grep 'ip'|sed -n '1p'|cut -d '"' -f4` ;;
-   SunOS) IP=`curl -s http://ipinfo.io/|grep 'ip'|sed -n '1p'|cut -d '"' -f4` ;;   
+   SunOS) IP=`curl -s http://ipinfo.io/|grep 'ip'|sed -n '1p'|cut -d '"' -f4` ;;
    *) IP="Unknown";;
 esac
 case $pv2 in
@@ -66,7 +66,7 @@ PHP54:\033[32;5m"$P4"\033[0m
 PHP55:\033[32;5m"$P5"\033[0m
 PHP56:\033[32;5m"$P6"\033[0m
 PHP70:\033[32;5m"$P7"\033[0m
-请使用浏览器访问 
+请使用浏览器访问
 http://"$IP":3312/admin
 Easypanel 账号: \033[32;5madmin\033[0m 	Mysql 账号: \033[32;5mroot\033[0m
 Easypanel 密码: \033[32;5mkangle\033[0m	Mysql 密码: \033[32;5mmysql\033[0m

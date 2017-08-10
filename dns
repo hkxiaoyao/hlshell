@@ -2,11 +2,11 @@
 #希望你能尊重开发者的作品如果您转载请【保留本版权信息】
 #狐狸脚本官网 http://www.hlshell.com
 #————————————————————————————————————————
-#		╦ ╦╦  ╔═╗╦ ╦╔═╗╦  ╦   ╔═╗╔═╗╔╦╗	 
-#		╠═╣║  ╚═╗╠═╣║╣ ║  ║   ║  ║ ║║║║	 
-#		╩ ╩╩═╝╚═╝╩ ╩╚═╝╩═╝╩═╝o╚═╝╚═╝╩ ╩	 
-# Copyright © 2015-2017 狐狸脚本官网版权 
-#———————————————————————————————————————— 
+#		╦ ╦╦  ╔═╗╦ ╦╔═╗╦  ╦   ╔═╗╔═╗╔╦╗
+#		╠═╣║  ╚═╗╠═╣║╣ ║  ║   ║  ║ ║║║║
+#		╩ ╩╩═╝╚═╝╩ ╩╚═╝╩═╝╩═╝o╚═╝╚═╝╩ ╩
+# Copyright © 2015-2017 狐狸脚本官网版权
+#————————————————————————————————————————
 files="/etc/s-hell"
 source $files/cfg
 rm -rf hlsh* dns* ots*
@@ -59,13 +59,13 @@ yum-complete-transaction --cleanup-only
 package-cleanup --dupes
 package-cleanup --problems
 yum -q -y install kernel-headers --disableexcludes=all
-yum -q -y install bzip2-devel libxml2-devel curl-devel db4-devel libjpeg-devel libpng-devel  
+yum -q -y install bzip2-devel libxml2-devel curl-devel db4-devel libjpeg-devel libpng-devel
 yum -q -y install pcre-devel zlib-devel sqlite-devel libmcrypt-devel unzip mhash-devel openssl-devel
-yum -q -y install libtool-ltdl libtool-ltdl-devel libjpeg libjpeg-devel libpng libpng-devel freetype 
-yum -q -y install freetype-devel libxml2 libxml2-devel pcre-devel curl-devel libxslt-devel 
+yum -q -y install libtool-ltdl libtool-ltdl-devel libjpeg libjpeg-devel libpng libpng-devel freetype
+yum -q -y install freetype-devel libxml2 libxml2-devel pcre-devel curl-devel libxslt-devel
 yum -q -y install bzip2 epel-release php-mcrypt libmcrypt make automake gcc gcc-c++ pcre-deve
 yum -q -y remove mysql mysql-server mysql-devel mysql-libs mysql-common MariaDB-server MariaDB-client
-rm /var/lib/mysql 
+rm /var/lib/mysql
 
 clear
 echo -e "————————————————————————————————————————————————————
@@ -96,5 +96,3 @@ echo -e "———————————————————————�
 ————————————————————————————————————————————————————"
 exit 1
 fi
-
-

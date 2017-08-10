@@ -2,7 +2,7 @@
 files="/etc/s-hell"
 source $files/cfg
 source $files/iver
-rm -rf /root/p* /root/u* u* p* 
+rm -rf /root/p* /root/u* u* p*
 PREFIX="/vhs/kangle/ext/php71"
 phpv=`"$PREFIX"/bin/php -v |grep "$PHP71" -o`
 file="php-$PHP71.tar.bz2"

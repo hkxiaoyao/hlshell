@@ -2,11 +2,11 @@
 #希望你能尊重开发者的作品如果您转载请【保留本版权信息】
 #狐狸脚本官网 http://www.hlshell.com
 #————————————————————————————————————————
-#		╦ ╦╦  ╔═╗╦ ╦╔═╗╦  ╦   ╔═╗╔═╗╔╦╗	 
-#		╠═╣║  ╚═╗╠═╣║╣ ║  ║   ║  ║ ║║║║	 
-#		╩ ╩╩═╝╚═╝╩ ╩╚═╝╩═╝╩═╝o╚═╝╚═╝╩ ╩	 
-# Copyright © 2015-2016 狐狸脚本官网版权 
-#———————————————————————————————————————— 
+#		╦ ╦╦  ╔═╗╦ ╦╔═╗╦  ╦   ╔═╗╔═╗╔╦╗
+#		╠═╣║  ╚═╗╠═╣║╣ ║  ║   ║  ║ ║║║║
+#		╩ ╩╩═╝╚═╝╩ ╩╚═╝╩═╝╩═╝o╚═╝╚═╝╩ ╩
+# Copyright © 2015-2016 狐狸脚本官网版权
+#————————————————————————————————————————
 file="/etc/s-hell"
 source $file/iver
 files="/etc/s-hell"
@@ -19,7 +19,7 @@ IO="" # store IP
 case $OS in
    Linux) IP=`curl -s http://ipinfo.io/|grep 'ip'|sed -n '1p'|cut -d '"' -f4`;;
    FreeBSD|OpenBSD) IP=`curl -s http://ipinfo.io/|grep 'ip'|sed -n '1p'|cut -d '"' -f4` ;;
-   SunOS) IP=`curl -s http://ipinfo.io/|grep 'ip'|sed -n '1p'|cut -d '"' -f4` ;;   
+   SunOS) IP=`curl -s http://ipinfo.io/|grep 'ip'|sed -n '1p'|cut -d '"' -f4` ;;
    *) IP="Unknown";;
 esac
 case $pv2 in
@@ -38,7 +38,7 @@ echo -e "———————————————————————�
 	Copyright © 2015-2016
 	\033[32;5m狐狸脚本提醒您\033[0m
 ————————————————————————————————————————————————————
-狐狸脚本默认安装PHP52-PHP53 
+狐狸脚本默认安装PHP52-PHP53
 如有需要安装其他PHP请执行 hls -h 帮助
 PHP52:\033[32;5m"$P2"\033[0m
 PHP53:\033[32;5m"$P3"\033[0m

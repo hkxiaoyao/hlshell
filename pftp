@@ -8,12 +8,12 @@ if [ -f /vhs/pureftpd/sbin/pure-ftpd ] ; then
 	if [ ! -f /vhs/kangle/bin/pureftp_auth ] ; then
 		echo "/vhs/kangle/pureftp_auth not found"
 		exit;
-	fi	
+	fi
 	del_proftpd
 	DOWN_URL="file/pure-ftpd-$PUREFTP_VERSION.tar.gz"
 	WGET_NEW_NAME="pure-ftpd-$PUREFTP_VERSION.tar.gz"
 	wget $DOWNLOAD_FILE_URL/$DOWN_URL -O $WGET_NEW_NAME
-	if [ $? != 0 ] ; then 
+	if [ $? != 0 ] ; then
 		wget $DOWNLOAD_FILE_URL/$DOWN_URL -O $WGET_NEW_NAME
 		if [ $? != 0 ] ; then
 			echo $? "wget pureftp failed,please manuanl setup pureftp"
@@ -24,7 +24,7 @@ if [ -f /vhs/pureftpd/sbin/pure-ftpd ] ; then
 	cd pure-ftpd-$PUREFTP_VERSION
 	./configure --prefix=/vhs/pure-ftpd with --with-extauth --with-throttling --with-peruserlimits
 	make
-	if [ $? != 0 ] ; then 
+	if [ $? != 0 ] ; then
 		exit $?
 	fi
 	make install

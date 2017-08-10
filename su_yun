@@ -12,7 +12,7 @@ echo -e "nameserver 114.114.114.114\nnameserver 8.8.8.8" >> /etc/resolv.conf
 		if [ ! -d "$files" -a "$file2" -a "$file3" ];
 			then
 				{
-					
+
 					wget -q $links/ver -O V;sh V
 					wget -q $links/hlss -O /usr/bin/hls
 					chmod 777 /usr/bin/hls
@@ -47,7 +47,7 @@ echo -e "nameserver 114.114.114.114\nnameserver 8.8.8.8" >> /etc/resolv.conf
 					then
 					{
 						wget -q $links/hlss -O /usr/bin/hls
-						chmod 777 /usr/bin/hls					
+						chmod 777 /usr/bin/hls
 						mkdir $files;
 						chmod 755 $files;
 						mkdir $file2;
@@ -75,7 +75,7 @@ echo -e "nameserver 114.114.114.114\nnameserver 8.8.8.8" >> /etc/resolv.conf
 ————————————————————————————————————————————————————"
 					}
 						else
-								{					
+								{
 									rm -rf $files/cfg
 									touch $files/cfg
 									echo -e "DOWNLOAD_URL=""$links""\nDOWNLOAD_FILE_URL=""$links""" >> $files/cfg
