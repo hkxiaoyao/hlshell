@@ -37,6 +37,7 @@ input_enter=""
 		elif [ "$input_enter" = "p2" ]
 			then
 			rm -rf $PREFIX/tpl_php52
+			rm -rf $PREFIX/php52
 			clear
 			echo -e "\033[36m————————————————————————————————————————————————————
 	╦ ╦╦  ╔═╗╦ ╦╔══ ╦  ╦   ╔═╗╔═╗╔╦╗
