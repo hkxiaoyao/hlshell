@@ -80,7 +80,7 @@ function setup_kangle
 {
 	if [ -f /vhs/kangle/bin/kangle ] ; then
 		K_LOCAL_VER=`/vhs/kangle/bin/kangle -v|grep -E "[0-9][.][0-9][.][0-9]" -o`
-		if [ "$K_LOCAL_VER" == "" ] ; then 
+		if [ "$K_LOCAL_VER" == "" ] ; then
 			K_LOCAL_VER_TEMP=`/vhs/kangle/bin/kangle -v|grep -E "[/][0-9][.][0-9]" -o`
 			K_LOCAL_VER=`echo $K_LOCAL_VER_TEMP|grep -E "[0-9][.][0-9]" -o`
 		fi
@@ -98,8 +98,8 @@ function setup_kangle
 	KANGLE_URL="file/kangle-$KANGLE_VERSION.tar.gz"
 	if [  -f kangle-$KANGLE_VERSION.tar.gz ] ; then
 		rm -f kangle-$KANGLE_VERSION.tar.gz
-	fi	
-	wget $DOWNLOAD_FILE_URL/$KANGLE_URL 
+	fi
+	wget $DOWNLOAD_FILE_URL/$KANGLE_URL
 	if [ $? != 0 ] ; then
 		exit $?
 	fi
@@ -151,7 +151,7 @@ function stat_iptables
 	# if [ -d /var/lib/mysql/ ] ; then
 		# return;
 	# fi
-# yum -y install mysql 
+# yum -y install mysql
 # yum -y install mysql-server
         # if [ $? != 0 ] ; then
                 # exit $?
@@ -172,7 +172,7 @@ function stat_iptables
 #                echo "mysql-server is install success"
 #        fi
 	# chkconfig mysqld on
-	
+
 # }
 #setup php
 function setup_php
@@ -183,7 +183,7 @@ function setup_php
 
 #setup hlpanel
 function setup_hlpanel
-{	
+{
 	#close selinux make  zend optimizer Effect
 	setenforce 0
 	sed -i '/SELINUX/s/enforcing/disabled/' /etc/selinux/config
@@ -205,7 +205,7 @@ function setup_hlpanel
                 # chmod 777 /var/lib/php/session
                 # chmod a+t /var/lib/php/session
         # fi
-	# chmod 700 $PREFIX/etc $PREFIX/var $PREFIX/nodewww/data	
+	# chmod 700 $PREFIX/etc $PREFIX/var $PREFIX/nodewww/data
 	rm -rf hlpanel-$HLPANEL_VERSION-$SYS
 	rm -rf hlpanel-$HLPANEL_VERSION-$SYS.tar.gz
 	HLPANEL_URL="file/hlpanel-$HLPANEL_VERSION-$SYS.tar.gz"
@@ -214,8 +214,8 @@ function setup_hlpanel
 	if [ $? != 0 ] ; then
         	exit $?
 	fi
-	
-	tar xzf $EA_FILE_NAME
+
+	tar -xvf $EA_FILE_NAME
 	if [ $? != 0 ] ; then
         	exit $?
 	fi
@@ -238,7 +238,7 @@ function setup_hlpanel
 		        ln -s /etc/init.d/kangle /etc/rc.d/rc5.d/S66kangle
 		fi
 	fi
-	#install mysql bin 
+	#install mysql bin
 	# yum -y install mysql
 	# 1.6.3 add mysql && mysqldump to /vhs/kangle/bin
 	if [ ! -f /vhs/kangle/bin/mysql ] ; then
@@ -262,12 +262,12 @@ function setup_pureftpd
 	if [ ! -f /vhs/kangle/bin/pureftp_auth ] ; then
 		echo "/vhs/kangle/pureftp_auth not found"
 		exit;
-	fi	
+	fi
 	del_proftpd
 	DOWN_URL="file/pure-ftpd-$PUREFTP_VERSION.tar.gz"
 	WGET_NEW_NAME="pure-ftpd-$PUREFTP_VERSION.tar.gz"
 	wget $DOWNLOAD_FILE_URL/$DOWN_URL -O $WGET_NEW_NAME
-	if [ $? != 0 ] ; then 
+	if [ $? != 0 ] ; then
 		wget $DOWNLOAD_FILE_URL/$DOWN_URL -o $WGET_NEW_NAME
 		if [ $? != 0 ] ; then
 			echo $? "wget pureftp failed,please manuanl setup pureftp"
@@ -278,7 +278,7 @@ function setup_pureftpd
 	cd pure-ftpd-$PUREFTP_VERSION
 	./configure --prefix=/vhs/pure-ftpd with --with-extauth --with-throttling --with-peruserlimits
 	make
-	if [ $? != 0 ] ; then 
+	if [ $? != 0 ] ; then
 		exit $?
 	fi
 	make install
@@ -298,7 +298,7 @@ function del_proftpd
 	#rm -f /etc/rc.d/rc5.d/S96proftpd
 	chkconfig proftpd off
 	killall proftpd
-	
+
 }
 
 function setup_webalizer
