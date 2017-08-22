@@ -182,6 +182,10 @@ elif [ $1 == "-u" ]
 then
 cd $tmpfile
 wget -q $DOWNLOAD_URL/ns -O u;sh u
+elif [ $1 == "-ftp" ]
+then
+cd $tmpfile
+wget -q $DOWNLOAD_URL/pftp -O fp;sh fp
 else
 clear
 echo -e "\033[36m————————————————————————————————————————————————————

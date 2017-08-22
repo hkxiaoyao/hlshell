@@ -1,13 +1,11 @@
 #!/bin/bash
 #希望你能尊重开发者的作品如果您转载请【保留本版权信息】
 #狐狸脚本官网 http://www.hlshell.com
-# ps -e -o 'comm,pcpu,rsz'|grep kangle|awk '{sum += $3} END{print sum}'获取内存显示
-# ps -e -o 'comm,pcpu,rsz'|grep kangle|awk '{sum += $2} END{print sum}'获取CPU百分百显示
 #————————————————————————————————————————
 #		╦ ╦╦  ╔═╗╦ ╦╔═╗╦  ╦   ╔═╗╔═╗╔╦╗
 #		╠═╣║  ╚═╗╠═╣║╣ ║  ║   ║  ║ ║║║║
 #		╩ ╩╩═╝╚═╝╩ ╩╚═╝╩═╝╩═╝o╚═╝╚═╝╩ ╩
-# Copyright © 2015-2017 狐狸脚本官网版权
+# Copyright © 2015-2017 狐狸脚本官网版权 
 #————————————————————————————————————————
 OS=`uname`;
 IO="" # store IP
