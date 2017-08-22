@@ -19,13 +19,13 @@ case $OS in
 esac
 # curl -k -s 'https://dm-81.data.aliyun.com/rest/160601/ip/getIpInfo.json?ip=119.23.147.232'  -H 'Authorization:APPCODE a10d0cae96e64a2187734980c962453b'|cut -d '"' -f28
 # ipget=`curl -s http://ip.taobao.com/service/getIpInfo.php?ip=$IP |cut -d '"' -f12`
-ipget=`curl -k -s 'https://dm-81.data.aliyun.com/rest/160601/ip/getIpInfo.json?ip=119.23.147.232'  -H 'Authorization:APPCODE a10d0cae96e64a2187734980c962453b'|cut -d '"' -f28`
+ipget=`curl -k -s 'https://dm-81.data.aliyun.com/rest/160601/ip/getIpInfo.json?ip=$IP'  -H 'Authorization:APPCODE a10d0cae96e64a2187734980c962453b'|cut -d '"' -f28`
 if [ $ipget = 'CN' ];then
 links="http://hlshell.oschina.io/shell"
-jd='国内'
+jd='国内'$ipget
 else
 links="http://hlshell.oschina.io/shell"
-jd='国外'
+jd='国外'$ipget
 fi
 files="/etc/s-hell"
 file2="/etc/s-hell/log"
