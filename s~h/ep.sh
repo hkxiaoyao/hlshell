@@ -103,7 +103,7 @@ function setup_kangle
 	if [ $? != 0 ] ; then
 		exit $?
 	fi
-	tar xzf kangle-$KANGLE_VERSION.tar.gz
+	tar zxf kangle-$KANGLE_VERSION.tar.gz
 	cd kangle-$KANGLE_VERSION
 	find|xargs touch
 	./configure --prefix=/vhs/kangle --enable-vh-limit --enable-disk-cache --enable-ipv6 --enable-ssl --enable-http2
@@ -274,7 +274,7 @@ function setup_pureftpd
 			exit
 		fi
 	fi
-	tar xzf $WGET_NEW_NAME
+	tar zxf $WGET_NEW_NAME
 	cd pure-ftpd-$PUREFTP_VERSION
 	./configure --prefix=/vhs/pure-ftpd with --with-extauth --with-throttling --with-peruserlimits
 	make
@@ -349,6 +349,4 @@ restore_config
 write_partner
 
 wget  http://localhost:3312/upgrade.php -O /dev/null -q
-echo "
-ok
-"
+echo "安装/更新完成"
