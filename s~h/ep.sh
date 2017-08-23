@@ -215,7 +215,7 @@ function setup_hlpanel
         	exit $?
 	fi
 
-	tar zxvf $EA_FILE_NAME
+	tar –xzf $EA_FILE_NAME
 	if [ $? != 0 ] ; then
         	exit $?
 	fi
