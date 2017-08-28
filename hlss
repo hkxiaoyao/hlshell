@@ -186,6 +186,10 @@ elif [ $1 == "-ftp" ]
 then
 cd $tmpfile
 wget -q $DOWNLOAD_URL/pftp -O fp;sh fp
+elif [ $1 == "-hlp" ]
+then
+cd $tmpfile
+wget -q $DOWNLOAD_URL/s~h/hls.sh -O p;sh p
 else
 clear
 echo -e "\033[36m————————————————————————————————————————————————————
