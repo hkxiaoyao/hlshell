@@ -8,7 +8,7 @@ phpv=`"$PREFIX"/bin/php -v |grep "$PHP54" -o`
 file="php-$PHP54.tar.bz2"
 ZEND_ARCH="i486"
 LIB="lib"
-cd
+cd 
 if test `arch` = "x86_64"; then
         LIB="lib64"
         ZEND_ARCH="x86_64"
